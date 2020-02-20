@@ -87,6 +87,9 @@ Debug/*.ipdb
 Release/*.ipdb
 Release/*.iobj
 
+Debug/*.new.obj.enc
+Release/*.new.obj.enc
+
 # output files
 *.map
 *.cod

@@ -4,8 +4,8 @@
 #include "..\WorkerPool.h"
 #include <exceptions\SystemException.h>
 
-YTransferWorker::YTransferWorker(YIOCP& iocp)
-	:YAbstractThread()
+YTransferWorker::YTransferWorker(YIOCP& iocp, unsigned nThreadSN /*= 0*/)
+	:YAbstractThread(nThreadSN)
 	,pServer(nullptr)
 	,m_iocp(iocp)
 	,pDispatchCompleteEvent(nullptr)

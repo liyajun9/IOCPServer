@@ -7,8 +7,8 @@
 #include "..\..\SocketServer.h"
 #include <basicServer\protocol\BaseMsg.h>
 
-YWorker::YWorker(YIOCP& iocp)
-	:YAbstractThread()
+YWorker::YWorker(YIOCP& iocp, unsigned nThreadSN /*= 0*/)
+	:YAbstractThread(nThreadSN)
 	,pServer(nullptr)
 	,m_iocp(iocp)
 	,pDispatchCompleteEvent(nullptr)

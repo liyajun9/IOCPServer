@@ -8,7 +8,7 @@ class YConnection;
 class YOverlappedBuffer;
 class YIOWorker : public YAbstractThread {
 public:
-	explicit YIOWorker(YIOCP& iocp);
+	explicit YIOWorker(YIOCP& iocp, unsigned nThreadSN = 0);
 	~YIOWorker();
 
 	void setServer(YSocketServer* server) { pServer = server; }

@@ -24,14 +24,15 @@ public:
 	void start() {
 		std::lock_guard<std::mutex> lock(mtx);
 
-		for (size_t i = 0; i < (numMaxActiveThreads - numInitActiveThreads); ++i) {
-			std::unique_ptr<Tthread> pT(new Tthread(m_iocp));
-			idleThreads.push_back(std::move(pT));
+		size_t nIndex = 1;
+		for (size_t i = 0; i < numInitActiveThreads; ++i) {
+			std::unique_ptr<Tthread> pT(new Tthread(m_iocp, nIndex++));
+			activeThreads.push_back(std::move(pT));
 		}
 
-		for (size_t i = 0; i < numInitActiveThreads; ++i) {
-			std::unique_ptr<Tthread> pT(new Tthread(m_iocp));
-			activeThreads.push_back(std::move(pT));
+		for (size_t i = 0; i < (numMaxActiveThreads - numInitActiveThreads); ++i) {
+			std::unique_ptr<Tthread> pT(new Tthread(m_iocp, nIndex++));
+			idleThreads.push_back(std::move(pT));
 		}
 
 		using itType = typename std::vector<std::unique_ptr<Tthread>>::iterator;
@@ -96,37 +97,35 @@ public:
 
 protected:
 	void OnException(YAbstractThread* pThread) override {//restart thread
-		LOGINFO("%s thread exception. join thread", typeid(*pThread).name());
-		pThread->join();
-		LOGINFO("restart thread");
+		LOGINFO("%s %d exception occured. restart thread", typeid(*pThread).name(), pThread->getThreadNo());
 		pThread->start();
 	}
 	virtual void OnInitialise(YAbstractThread* pThread) override {
-		LOGINFO("%s thread initialised", typeid(*pThread).name());
+		LOGINFO("%s %d initialising", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnStart(YAbstractThread* pThread) override {
-		LOGINFO("%s thread started", typeid(*pThread).name());
+		LOGINFO("%s %d starting", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnJoin(YAbstractThread* pThread) override {
-		LOGINFO("%s thread joined", typeid(*pThread).name());
+		LOGINFO("%s %d joining", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnWait(YAbstractThread* pThread) override {
-		LOGINFO("%s thread waited", typeid(*pThread).name());
+		LOGINFO("%s %d waiting", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnCancel(YAbstractThread* pThread) override {
-		LOGINFO("%s thread canceled", typeid(*pThread).name());
+		LOGINFO("%s %d canceling", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnSuspend(YAbstractThread* pThread) override {
-		LOGINFO("%s thread suspended", typeid(*pThread).name());
+		LOGINFO("%s %d suspending", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnResume(YAbstractThread* pThread) override {
-		LOGINFO("%s thread resumed", typeid(*pThread).name());
+		LOGINFO("%s %d resuming", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnReturn(YAbstractThread* pThread) override {
-		LOGINFO("%s thread returned", typeid(*pThread).name());
+		LOGINFO("%s %d returned", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 	void OnLogicError(YAbstractThread* pThread) override {
-		LOGINFO("%s thread returned logic error", typeid(*pThread).name());
+		LOGINFO("%s %d returned logic error", typeid(*pThread).name(), pThread->getThreadNo());
 	}
 
 private:

@@ -44,7 +44,7 @@ constexpr int LOG_LEVEL_DEBUG = (LOG_LEVEL_INFO | ELogType::ELog_Debug);
 #if(defined DEBUG || defined _DEBUG)
 constexpr int LOG_LEVEL = LOG_LEVEL_DEBUG;
 #else
-constexpr int LOG_LEVEL = LOG_LEVEL_WARN;
+constexpr int LOG_LEVEL = LOG_LEVEL_INFO;
 #endif
 
 //log items

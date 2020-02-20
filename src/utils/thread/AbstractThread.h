@@ -15,12 +15,13 @@ public:
 		running = 1,
 		paused = 2			
 	};
+	static constexpr int THREAD_TERMINATED = -1;
 	static constexpr int THREAD_SUCCESS = 0;
 	static constexpr int THREAD_LOGIC_ERROR = 1;
 	static constexpr int THREAD_EXCEPTION = 2;
 
 public:
-	YAbstractThread();
+	YAbstractThread(unsigned nThreadSN = 0);
 	virtual ~YAbstractThread();
 
 	void start(); 	
@@ -34,6 +35,7 @@ public:
 	EState getState() const;
 	HANDLE getHandle() const;
 	unsigned getThreadId() const;
+	unsigned getThreadNo() const;
 
 	void addListener(std::shared_ptr<YAbstractThreadListener>& spListener);
 	void removeListener(std::shared_ptr<YAbstractThreadListener>& spListener);
@@ -41,6 +43,7 @@ public:
 protected:
 	HANDLE hThread;
 	unsigned nThreadID;
+	unsigned nThreadNo; //added to remember thread no.
 	EState eState;
 	int nReturned;
 

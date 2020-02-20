@@ -5,8 +5,8 @@
 #include "..\..\protocol\BaseMsg.h"
 #include "..\..\connection\Connection.h"
 
-YIOWorker::YIOWorker(YIOCP& iocp)
-	:YAbstractThread()
+YIOWorker::YIOWorker(YIOCP& iocp, unsigned nThreadSN /*= 0*/)
+	:YAbstractThread(nThreadSN)
 	, pServer(nullptr)
 	, m_iocp(iocp)
 {

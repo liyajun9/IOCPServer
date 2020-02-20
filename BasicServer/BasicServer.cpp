@@ -9,14 +9,13 @@
 int main()
 {
     try {
-        auto splistener = std::make_shared<YServerListener>();
-        std::shared_ptr<YAbstractThreadListener> spAbstract = std::static_pointer_cast<YAbstractThreadListener>(splistener);
+        auto spAbstractListener = std::static_pointer_cast<YAbstractThreadListener>(std::make_shared<YServerListener>());
         YSocketServer server(7878);
-        server.addListener(spAbstract);
+        server.addListener(spAbstractListener);
         server.start();
-        Sleep(100000000);
-        //server.join();
-
+        server.join();
+        //Sleep(1000);
+        //server.cancel();
     }
     catch (YException & e) {
         std::cout << e.what() << std::endl;

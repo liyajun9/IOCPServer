@@ -14,7 +14,7 @@ class YConnection;
 class YOverlappedBuffer;
 class YWorker : public YAbstractThread {
 public:
-	explicit YWorker(YIOCP& iocp);
+	explicit YWorker(YIOCP& iocp, unsigned nThreadSN = 0);
 	~YWorker();
 
 	void setServer(YSocketServer* server) { pServer = server;  }

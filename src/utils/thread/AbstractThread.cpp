@@ -8,11 +8,12 @@
 
 #pragma warning(disable:4482)
 
-YAbstractThread::YAbstractThread() 
-	: hThread(INVALID_HANDLE_VALUE),
-	nThreadID(0),
-	eState(EState::initial),
-	nReturned(THREAD_SUCCESS)
+YAbstractThread::YAbstractThread(unsigned nThreadSN /*= 0*/) 
+	: hThread(INVALID_HANDLE_VALUE)
+	,nThreadNo(nThreadSN)
+	,nThreadID(0)
+	,eState(EState::initial)
+	,nReturned(THREAD_SUCCESS)
 {
 }
 
@@ -23,7 +24,6 @@ YAbstractThread::~YAbstractThread()
 			//LOG_INFO("Note: CYThread destructor: will cancel the thread");
 			cancel();  //Note: won't call OnThreadCancel of subclass since subclass isn't exist anymore here
 		}
-		CloseHandle(hThread);
 	}
 }
 
@@ -40,6 +40,11 @@ HANDLE YAbstractThread::getHandle() const
 unsigned YAbstractThread::getThreadId() const
 {
 	return nThreadID;
+}
+
+unsigned YAbstractThread::getThreadNo() const
+{
+	return nThreadNo;
 }
 
 void YAbstractThread::addListener(std::shared_ptr<YAbstractThreadListener>& spListener)
@@ -77,6 +82,8 @@ void YAbstractThread::start()
 		hThread = (HANDLE)_beginthreadex(NULL, 0, threadEntry, reinterpret_cast<void*>(this), 0, &nThreadID);
 		if(INVALID_HANDLE_VALUE == hThread)
 			throw YSystemException("YAbstractThread", "Start");
+		OnStart();
+		eState = EState::running;
 	}catch(YSystemException& e){
 		eState = EState::failed;
 		LOGFATAL(e.what());
@@ -130,7 +137,9 @@ int YAbstractThread::join()
 		return nRet;
 
 	OnJoin();
-	WaitForSingleObject(hThread, INFINITE);
+	if (WAIT_OBJECT_0 != WaitForSingleObject(hThread, INFINITE))
+		throw YSystemException("AbstractThread", "join");
+
 	return nReturned;
 }
 
@@ -142,7 +151,11 @@ bool YAbstractThread::wait(DWORD milliseconds /*= INFINITE*/)
 		return false;
 
 	OnWait();
-	return WAIT_OBJECT_0 == WaitForSingleObject(hThread, milliseconds);
+	auto nRes = WaitForSingleObject(hThread, milliseconds);
+	if (WAIT_OBJECT_0 != nRes || WAIT_TIMEOUT != nRes)
+		throw YSystemException("AbstractThread", "wait");
+
+	return WAIT_OBJECT_0 == nRes;
 }
 
 int YAbstractThread::cancel(DWORD milliseconds /*= 0*/)
@@ -159,7 +172,7 @@ int YAbstractThread::cancel(DWORD milliseconds /*= 0*/)
 	}
 	else {
 		OnCancel();
-		TerminateThread(hThread, THREAD_SUCCESS);
+		TerminateThread(hThread, THREAD_TERMINATED);
 		eState = EState::canceled;
 	}
 	return nRet;
@@ -170,8 +183,6 @@ unsigned __stdcall YAbstractThread::threadEntry(void *pParam)
 	YAbstractThread *pThread = reinterpret_cast<YAbstractThread *>(pParam);
 
 	try{
-		pThread->OnStart();
-		pThread->eState = EState::running;
 		pThread->nReturned = pThread->Run();
 
 		switch (pThread->nReturned)
@@ -179,6 +190,8 @@ unsigned __stdcall YAbstractThread::threadEntry(void *pParam)
 		case THREAD_SUCCESS:
 			pThread->OnReturn();
 			pThread->eState = EState::returned;
+			break;
+		case THREAD_TERMINATED:
 			break;
 		default:
 			pThread->OnLogicError();
@@ -199,6 +212,7 @@ unsigned __stdcall YAbstractThread::threadEntry(void *pParam)
 		pThread->eState = EState::exception;
 		LOGFATAL(_T("exception in YThread threadEntry - unknown exception"));
 	}
+	CloseHandle(pThread->hThread);
 	return pThread->nReturned;
 }
 

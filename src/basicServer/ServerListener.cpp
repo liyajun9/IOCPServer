@@ -5,53 +5,50 @@
 
 void YServerListener::OnInitialise(YAbstractThread* pThread)
 {
-	LOGINFO("Server initialised");
+	LOGINFO("Server initialising...");
 }
 
 void YServerListener::OnStart(YAbstractThread* pThread)
 {
-	LOGINFO("Server started");
+	LOGINFO("Server starting...");
 }
 
 void YServerListener::OnJoin(YAbstractThread* pThread)
 {
-	LOGINFO("Server joined");
+	LOGINFO("Server join...");
 }
 
 void YServerListener::OnWait(YAbstractThread* pThread)
 {
-	LOGINFO("Server waited");
+	LOGINFO("Server waiting...");
 }
 
 void YServerListener::OnCancel(YAbstractThread* pThread)
 {
-	LOGINFO("Server canceled");
+	LOGINFO("Server canceling...");
 }
 
 void YServerListener::OnSuspend(YAbstractThread* pThread)
 {
-	LOGINFO("Server suspended");
+	LOGINFO("Server suspending...");
 }
 
 void YServerListener::OnResume(YAbstractThread* pThread)
 {
-	LOGINFO("Server resumed");
+	LOGINFO("Server resuming...");
 }
 
 void YServerListener::OnReturn(YAbstractThread* pThread)
 {
-	LOGINFO("Server returned");
+	LOGINFO("Server returning...");
 }
 
 void YServerListener::OnLogicError(YAbstractThread* pThread)
 {
-	LOGINFO("Server returned with logicError");
+	LOGINFO("Server returning with logicError...");
 }
 
 void YServerListener::OnException(YAbstractThread* pThread)
 {
-	LOGINFO("Server returned with exception");
-	LOGERROR("OnException of %s\n restart server", typeid(*pThread).name());
-	pThread->join();
-	pThread->start();
+	LOGINFO("Server exception occured");
 }

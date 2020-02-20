@@ -7,7 +7,7 @@ class YSocketServer;
 class YWorkerPool;
 class YTransferWorker : public YAbstractThread {
 public:
-	explicit YTransferWorker(YIOCP& iocp);
+	explicit YTransferWorker(YIOCP& iocp, unsigned nThreadSN = 0);
 	~YTransferWorker();
 
 	void setServer(YSocketServer* server) { pServer = server; }
