@@ -21,8 +21,8 @@ YAbstractThread::~YAbstractThread()
 {
 	if(INVALID_HANDLE_VALUE != hThread){
 		if(eState == EState::running || eState == EState::paused){
-			//LOG_INFO("Note: CYThread destructor: will cancel the thread");
-			cancel();  //Note: won't call OnThreadCancel of subclass since subclass isn't exist anymore here
+			LOGDEBUG("Destructing thread object...");
+			join();  
 		}
 	}
 }

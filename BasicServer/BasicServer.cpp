@@ -14,8 +14,6 @@ int main()
         server.addListener(spAbstractListener);
         server.start();
         server.join();
-        //Sleep(1000);
-        //server.cancel();
     }
     catch (YException & e) {
         std::cout << e.what() << std::endl;
