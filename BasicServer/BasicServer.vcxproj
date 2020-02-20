@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{CF333AE1-F8DD-4ED5-98AD-5C256F34D228}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>BasicServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\gitRepo\WinSocketServer\libs\libcurl\include;D:\gitRepo\WinSocketServer\libs\openssl\include;D:\gitRepo\WinSocketServer\libs\sqlite\include;D:\gitRepo\WinSocketServer\src;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\gitRepo\WinSocketServer\libs\libcurl\lib;D:\gitRepo\WinSocketServer\libs\openssl\lib;D:\gitRepo\WinSocketServer\libs\sqlite\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\gitRepo\WinSocketServer\src;D:\gitRepo\WinSocketServer\libs\libcurl\include;D:\gitRepo\WinSocketServer\libs\openssl\include;D:\gitRepo\WinSocketServer\libs\sqlite\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\gitRepo\WinSocketServer\libs\libcurl\lib;D:\gitRepo\WinSocketServer\libs\openssl\lib;D:\gitRepo\WinSocketServer\libs\sqlite\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\basicServer\buffer\OverlappedBuffer.cpp" />
+    <ClCompile Include="..\src\basicServer\connection\Connection.cpp" />
+    <ClCompile Include="..\src\basicServer\connection\SessionData.cpp" />
+    <ClCompile Include="..\src\basicServer\protocol\BaseMsg.cpp" />
+    <ClCompile Include="..\src\basicServer\ServerListener.cpp" />
+    <ClCompile Include="..\src\basicServer\SocketServer.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\IOCP\IOCP.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\IOPool.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\TransferPool.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\WorkerPool.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\workerThread\IOWorker.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\workerThread\TransferWorker.cpp" />
+    <ClCompile Include="..\src\basicServer\threadPool\workerThread\Worker.cpp" />
+    <ClCompile Include="..\src\exceptions\Exception.cpp" />
+    <ClCompile Include="..\src\exceptions\SQLiteException.cpp" />
+    <ClCompile Include="..\src\exceptions\SystemException.cpp" />
+    <ClCompile Include="..\src\exceptions\WSAException.cpp" />
+    <ClCompile Include="..\src\jsoncpp\jsoncpp.cpp" />
+    <ClCompile Include="..\src\log\Log.cpp" />
+    <ClCompile Include="..\src\utils\database\SQLite.cpp" />
+    <ClCompile Include="..\src\utils\encodings\CharEncodings.cpp" />
+    <ClCompile Include="..\src\utils\SocketUtils.cpp" />
+    <ClCompile Include="..\src\utils\synchronize\Event.cpp" />
+    <ClCompile Include="..\src\utils\thread\AbstractThread.cpp" />
+    <ClCompile Include="..\src\utils\time\TimeUtils.cpp" />
+    <ClCompile Include="..\src\utils\trace\Trace.cpp" />
+    <ClCompile Include="BasicServer.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\basicServer\buffer\OverlappedBuffer.h" />
+    <ClInclude Include="..\src\basicServer\cachedObj\cachedObj.h" />
+    <ClInclude Include="..\src\basicServer\connection\Connection.h" />
+    <ClInclude Include="..\src\basicServer\connection\SessionData.h" />
+    <ClInclude Include="..\src\basicServer\protocol\BaseMsg.h" />
+    <ClInclude Include="..\src\basicServer\ServerListener.h" />
+    <ClInclude Include="..\src\basicServer\SocketServer.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\IOCPThreadPool.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\IOCP\IOCP.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\IOPool.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\TransferPool.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\WorkerPool.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\workerThread\IOWorker.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\workerThread\TransferWorker.h" />
+    <ClInclude Include="..\src\basicServer\threadPool\workerThread\Worker.h" />
+    <ClInclude Include="..\src\exceptions\Exception.h" />
+    <ClInclude Include="..\src\exceptions\SQLiteException.h" />
+    <ClInclude Include="..\src\exceptions\SystemException.h" />
+    <ClInclude Include="..\src\exceptions\WSAException.h" />
+    <ClInclude Include="..\src\headers.h" />
+    <ClInclude Include="..\src\jsoncpp\json\json-forwards.h" />
+    <ClInclude Include="..\src\jsoncpp\json\json.h" />
+    <ClInclude Include="..\src\log\Log.h" />
+    <ClInclude Include="..\src\macros\ttype.h" />
+    <ClInclude Include="..\src\utils\database\SQLite.h" />
+    <ClInclude Include="..\src\utils\encodings\CharEncodings.h" />
+    <ClInclude Include="..\src\utils\SocketUtils.h" />
+    <ClInclude Include="..\src\utils\synchronize\CSLocker.h" />
+    <ClInclude Include="..\src\utils\synchronize\Event.h" />
+    <ClInclude Include="..\src\utils\thread\AbstractThread.h" />
+    <ClInclude Include="..\src\utils\thread\AbstractThreadListener.h" />
+    <ClInclude Include="..\src\utils\time\TimeUtils.h" />
+    <ClInclude Include="..\src\utils\trace\Trace.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

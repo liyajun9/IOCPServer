@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="exceptions">
+      <UniqueIdentifier>{b2a3ac8d-89d9-4232-b5a4-41884a5a46b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{1eaaa275-753b-4b73-8897-9ee9cb9cb3fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="macros">
+      <UniqueIdentifier>{7f665488-21ee-4a49-97ab-4bef5042927f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{8ca35e43-cd4f-4c3d-a747-c4da4fe149be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\database">
+      <UniqueIdentifier>{45d04384-f53f-4329-bdd9-3ef27d279880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\encodings">
+      <UniqueIdentifier>{8e96e2ec-638e-4bf6-94c1-c066c2c2dcf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\synchronize">
+      <UniqueIdentifier>{1693dcf9-bfca-4f7e-a74b-a2742c3d6cf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\thread">
+      <UniqueIdentifier>{eca315d4-cadb-4e24-8c5e-4144901285ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\time">
+      <UniqueIdentifier>{28364cbc-b39f-4f48-aa8d-84efd683653d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\trace">
+      <UniqueIdentifier>{2f5ff496-7c89-4dee-b188-46039ea991cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{9cf1cf59-c318-43de-86c0-acad2d6d90c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer">
+      <UniqueIdentifier>{d95fdd74-f095-4b69-a7a8-e88d5b494250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\buffer">
+      <UniqueIdentifier>{eff99425-d16b-468d-a969-7c2c6ac33a78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\cachedObj">
+      <UniqueIdentifier>{0f856d71-2229-4e28-a331-a7d6a4df7afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\connection">
+      <UniqueIdentifier>{ddd0e596-5f84-4e26-8fe1-b24e442f4ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\protocol">
+      <UniqueIdentifier>{525e3777-b7e3-4374-8823-4cb043ea01af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\threadPool">
+      <UniqueIdentifier>{81dffeaa-79eb-4770-b4be-bd0d5e7daaea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\threadPool\IOCP">
+      <UniqueIdentifier>{4b9d71bd-33f9-48e0-adbb-1a9fc5611e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicServer\threadPool\workerThread">
+      <UniqueIdentifier>{3767a44e-dd30-440b-8670-689ec73ed6fc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BasicServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\exceptions\Exception.cpp">
+      <Filter>exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\exceptions\SQLiteException.cpp">
+      <Filter>exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\exceptions\SystemException.cpp">
+      <Filter>exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\exceptions\WSAException.cpp">
+      <Filter>exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\Log.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\jsoncpp\jsoncpp.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\database\SQLite.cpp">
+      <Filter>utils\database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\encodings\CharEncodings.cpp">
+      <Filter>utils\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\trace\Trace.cpp">
+      <Filter>utils\trace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\time\TimeUtils.cpp">
+      <Filter>utils\time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\thread\AbstractThread.cpp">
+      <Filter>utils\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\synchronize\Event.cpp">
+      <Filter>utils\synchronize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\SocketUtils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\buffer\OverlappedBuffer.cpp">
+      <Filter>basicServer\buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\connection\Connection.cpp">
+      <Filter>basicServer\connection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\connection\SessionData.cpp">
+      <Filter>basicServer\connection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\protocol\BaseMsg.cpp">
+      <Filter>basicServer\protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\IOCP\IOCP.cpp">
+      <Filter>basicServer\threadPool\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\workerThread\IOWorker.cpp">
+      <Filter>basicServer\threadPool\workerThread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\workerThread\TransferWorker.cpp">
+      <Filter>basicServer\threadPool\workerThread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\workerThread\Worker.cpp">
+      <Filter>basicServer\threadPool\workerThread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\IOPool.cpp">
+      <Filter>basicServer\threadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\TransferPool.cpp">
+      <Filter>basicServer\threadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\threadPool\WorkerPool.cpp">
+      <Filter>basicServer\threadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\SocketServer.cpp">
+      <Filter>basicServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicServer\ServerListener.cpp">
+      <Filter>basicServer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\headers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\exceptions\Exception.h">
+      <Filter>exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\exceptions\SQLiteException.h">
+      <Filter>exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\exceptions\SystemException.h">
+      <Filter>exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\exceptions\WSAException.h">
+      <Filter>exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\log\Log.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\macros\ttype.h">
+      <Filter>macros</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\jsoncpp\json\json.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\jsoncpp\json\json-forwards.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\database\SQLite.h">
+      <Filter>utils\database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\encodings\CharEncodings.h">
+      <Filter>utils\encodings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\trace\Trace.h">
+      <Filter>utils\trace</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\time\TimeUtils.h">
+      <Filter>utils\time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\thread\AbstractThread.h">
+      <Filter>utils\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\thread\AbstractThreadListener.h">
+      <Filter>utils\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\synchronize\CSLocker.h">
+      <Filter>utils\synchronize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\synchronize\Event.h">
+      <Filter>utils\synchronize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\SocketUtils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\buffer\OverlappedBuffer.h">
+      <Filter>basicServer\buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\cachedObj\cachedObj.h">
+      <Filter>basicServer\cachedObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\connection\Connection.h">
+      <Filter>basicServer\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\connection\SessionData.h">
+      <Filter>basicServer\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\protocol\BaseMsg.h">
+      <Filter>basicServer\protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\IOCP\IOCP.h">
+      <Filter>basicServer\threadPool\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\workerThread\IOWorker.h">
+      <Filter>basicServer\threadPool\workerThread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\workerThread\TransferWorker.h">
+      <Filter>basicServer\threadPool\workerThread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\workerThread\Worker.h">
+      <Filter>basicServer\threadPool\workerThread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\IOCPThreadPool.h">
+      <Filter>basicServer\threadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\IOPool.h">
+      <Filter>basicServer\threadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\TransferPool.h">
+      <Filter>basicServer\threadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\threadPool\WorkerPool.h">
+      <Filter>basicServer\threadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\SocketServer.h">
+      <Filter>basicServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basicServer\ServerListener.h">
+      <Filter>basicServer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

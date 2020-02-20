@@ -1,0 +1,98 @@
+#New temporary files
+.vs
+
+# Solution User Options
+*.suo
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Incremental Linking
+*.ilk
+*.idb
+
+# Fortran module files
+*.mod
+
+# Visual studio data server data and intellisense
+*.sdf
+*.opensdf
+ipch/*
+*.ncb
+*.bsc
+*.sbr
+
+# Resource
+*.aps
+*.res
+Debug/*.rc
+Release/*.rc
+Debug/*.manifest
+Release/*.manifest
+
+# Debug
+*.pdb
+
+# Logs
+BuildLog.htm
+*.lastbuildstate
+*.log
+*.Log
+*.LOG
+*.tlog
+
+# Export file
+*.exp
+
+# Compiled files(with folder name like "Debug" or "Release" to only exclude compiled target)
+Debug/*.lai
+Release/*.lai
+
+Debug/*.la
+Release/*.la
+
+Debug/*.a
+Release/*.a
+
+Debug/*.lib
+Release/*.lib
+
+Debug/*.so
+Release/*.so
+
+Debug/*.dylib
+Release/*.dylib
+
+Debug/*.dll
+Release/*.dll
+
+Debug/*.exe
+Release/*.exe
+
+Debug/*.out
+Release/*.out
+
+Debug/*.app
+Release/*.app
+
+# output files
+*.map
+*.cod
+
+# database
+*.nlb
+*.db
+*.wlt
+
+# Custom files
+.svn/*
+*.bak
+*.dat
+*.rsp
