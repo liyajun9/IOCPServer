@@ -6,6 +6,7 @@
 #include <basicServer\buffer\OverlappedBuffer.h>
 #include <atomic>
 #include <basicServer\connection\SessionData.h>
+#include <mutex>
 
 class YConnection : public YCachedObj<YConnection>{
 public:
@@ -54,4 +55,5 @@ private:
 
 	//buffer map: key = taskType:serialNum
 	std::map<tstring, std::shared_ptr<YOverlappedBuffer>> bufferMap;
+	std::mutex mtx;
 };

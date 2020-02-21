@@ -44,15 +44,11 @@ public:
 	}
 
 	void stop() {
-		std::lock_guard<std::mutex> lock(mtx);
-
 		stopThreads();
-		cancelThreads();
+		//cancelThreads();  //remove to avoid undefined behavior
 	}
 
 	void associateDevice(HANDLE hDevice, ULONG_PTR completionKey) {
-		std::lock_guard<std::mutex> lock(mtx);
-
 		m_iocp.AssociateDevice(hDevice, completionKey);
 	}
 
@@ -136,6 +132,9 @@ private:
 	void stopThreads() {
 		for (size_t i = 0; i < activeThreads.size(); ++i)
 			stopThread();
+
+		for(auto it = activeThreads.begin(); it != activeThreads.end(); ++it)
+			(*it)->join();
 	}
 
 	void cancelThreads() {

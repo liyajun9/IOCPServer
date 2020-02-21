@@ -105,6 +105,7 @@ YConnection* YSocketServer::allocateConnection(SOCKET socket, SOCKADDR* pAddr)
 
 void YSocketServer::releaseConnection(YConnection* pConn)
 {
+	std::lock_guard<std::mutex> lock(mtx);
 	tstring key = NS_Yutils::makeIpPortString(pConn->getIP(), pConn->getPort());
 	pConn->clear();
 	connectionMap.erase(key);

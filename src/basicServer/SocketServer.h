@@ -33,6 +33,7 @@ private:
 	YEvent dispatchCompleteEvent;//used by transferPool to dynamically control number of threads in workerPool
 
 	std::map<tstring, std::shared_ptr<YConnection>> connectionMap; //key = ip:port
+	std::mutex mtx;
 
 	std::shared_ptr<YIOPool> ioPool;
 	std::shared_ptr<YTransferPool> transferPool;

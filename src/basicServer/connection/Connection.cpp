@@ -71,12 +71,14 @@ std::shared_ptr<YOverlappedBuffer> YConnection::allocatorNormalUsedBuffer()
 
 void YConnection::releaseBuffer(YOverlappedBuffer* pBuf)
 {
+	std::lock_guard<std::mutex> lock(mtx);
 	tstring key = makeBufferKey(pBuf->getTaskType(), pBuf->getSerialNum());
 	bufferMap.erase(key);
 }
 
 YOverlappedBuffer* YConnection::allocateBuffer(TaskType type)
 {
+	std::lock_guard<std::mutex> lock(mtx);
 	std::shared_ptr<YOverlappedBuffer> spBuf(new YOverlappedBuffer());
 	long serialNum = allocateSerialNum(type);
 	spBuf->setTaskType(type);
